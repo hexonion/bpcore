@@ -193,36 +193,24 @@
             font-size: 1.5rem;
         }
 
-        .photo-placeholder {
+        .photo-container {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #1a1a2a, #2a2a3a);
+            height: 250px;
             border-radius: 12px;
             margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
             position: relative;
         }
 
-        .photo-placeholder::after {
-            content: 'Фото недели';
-            position: absolute;
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            z-index: 1;
-        }
-
-        .photo-placeholder img {
+        .photo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .top-card:hover .photo-placeholder img {
-            transform: scale(1.05);
+        .top-card:hover .photo-container img {
+            transform: scale(1.1);
         }
 
         .photo-info {
@@ -529,13 +517,12 @@
                         <i class="fas fa-heart"></i>
                         <span>ЛАЙКИ</span>
                     </div>
-                    <div class="photo-placeholder">
-                        <!-- Заглушка для изображения -->
-                        <div style="width:100%;height:100%;background:linear-gradient(45deg, #2a2a3a, #3a3a4a);"></div>
+                    <div class="photo-container">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Анна - самое залайканное фото">
                     </div>
                     <div class="photo-info">
                         <span>@таггер</span>
-                        <span>колво ♥</span>
+                        <span>кол-во ♥</span>
                     </div>
                     <p style="margin-top:15px;color:var(--text-secondary);">описание</p>
                 </div>
@@ -546,13 +533,12 @@
                         <i class="fas fa-comment-alt"></i>
                         <span>КОММЕНТАРИИ</span>
                     </div>
-                    <div class="photo-placeholder">
-                        <!-- Заглушка для изображения -->
-                        <div style="width:100%;height:100%;background:linear-gradient(45deg, #3a2a3a, #4a3a4a);"></div>
+                    <div class="photo-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80" alt="Максим - самое комментируемое фото">
                     </div>
                     <div class="photo-info">
                         <span>@таггер</span>
-                        <span>колво 💬</span>
+                        <span>кол-во 💬</span>
                     </div>
                     <p style="margin-top:15px;color:var(--text-secondary);">описание</p>
                 </div>
@@ -563,9 +549,8 @@
                         <i class="fas fa-crown"></i>
                         <span>ЛУЧШЕЕ</span>
                     </div>
-                    <div class="photo-placeholder">
-                        <!-- Заглушка для изображения -->
-                        <div style="width:100%;height:100%;background:linear-gradient(45deg, #2a3a3a, #3a4a4a);"></div>
+                    <div class="photo-container">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="София - лучшее фото недели">
                     </div>
                     <div class="photo-info">
                         <span>@таггер</span>
