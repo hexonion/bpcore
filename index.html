@@ -21,6 +21,9 @@
             --text-color: #f0f0f0;
             --text-secondary: #b0b0c0;
             --border-color: #2a2a3a;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
         }
 
         body {
@@ -52,6 +55,11 @@
         @keyframes glow {
             0%, 100% { box-shadow: 0 0 10px var(--accent-color); }
             50% { box-shadow: 0 0 20px var(--accent-color); }
+        }
+
+        @keyframes medalGlow {
+            0%, 100% { text-shadow: 0 0 5px currentColor; }
+            50% { text-shadow: 0 0 15px currentColor; }
         }
 
         /* Шапка */
@@ -225,6 +233,123 @@
             font-size: 0.9rem;
         }
 
+        /* Система рейтинга */
+        .rating-section {
+            margin-top: 80px;
+            animation: fadeIn 1.4s ease-out 0.4s both;
+        }
+
+        .rating-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto 0;
+            border-collapse: collapse;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--surface-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .rating-table th {
+            background: var(--accent-color);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .rating-table th:first-child {
+            border-radius: 16px 0 0 0;
+        }
+
+        .rating-table th:last-child {
+            border-radius: 0 16px 0 0;
+        }
+
+        .rating-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .rating-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rating-table tr:hover td {
+            background-color: rgba(106, 78, 255, 0.1);
+        }
+
+        .rating-place {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .place-medal {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .place-1 .place-medal {
+            background: linear-gradient(45deg, var(--gold), #ffed4e);
+            color: #000;
+            animation: medalGlow 2s infinite;
+        }
+
+        .place-2 .place-medal {
+            background: linear-gradient(45deg, var(--silver), #e6e6e6);
+            color: #000;
+            animation: medalGlow 2s infinite 0.3s;
+        }
+
+        .place-3 .place-medal {
+            background: linear-gradient(45deg, var(--bronze), #e6b87a);
+            color: #000;
+            animation: medalGlow 2s infinite 0.6s;
+        }
+
+        .profile-link {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .profile-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .profile-link i {
+            font-size: 0.9rem;
+        }
+
+        .wins-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(106, 78, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .wins-count i {
+            color: var(--gold);
+        }
+
         /* Ссылка на соцсеть */
         .social-link {
             display: flex;
@@ -283,6 +408,10 @@
             .top-card {
                 max-width: 300px;
             }
+            
+            .rating-table {
+                max-width: 95%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -302,6 +431,21 @@
                 padding: 15px 30px;
                 font-size: 1.1rem;
             }
+            
+            .rating-table {
+                font-size: 0.9rem;
+            }
+            
+            .rating-table th,
+            .rating-table td {
+                padding: 15px 10px;
+            }
+            
+            .place-medal {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -315,6 +459,17 @@
             
             .nomination {
                 font-size: 1.5rem;
+            }
+            
+            .rating-place {
+                font-size: 1rem;
+                gap: 10px;
+            }
+            
+            .place-medal {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
             }
         }
 
@@ -420,6 +575,84 @@
                 </div>
             </div>
             
+            <!-- Система рейтинга -->
+            <div class="rating-section">
+                <h2 class="section-title">РЕЙТИНГ ПОБЕД</h2>
+                
+                <table class="rating-table">
+                    <thead>
+                        <tr>
+                            <th>Место</th>
+                            <th>Участник</th>
+                            <th>Побед</th>
+                            <th>Профиль</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="place-1">
+                            <td>
+                                <div class="rating-place">
+                                    <div class="place-medal">1</div>
+                                    <span>Золото</span>
+                                </div>
+                            </td>
+                            <td>Анна Прекрасная</td>
+                            <td>
+                                <span class="wins-count">
+                                    <i class="fas fa-trophy"></i>
+                                    12 побед
+                                </span>
+                            </td>
+                            <td>
+                                <a href="https://tagger.su/user/anna_beautiful" class="profile-link" target="_blank">
+                                    Перейти <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="place-2">
+                            <td>
+                                <div class="rating-place">
+                                    <div class="place-medal">2</div>
+                                    <span>Серебро</span>
+                                </div>
+                            </td>
+                            <td>Максим Идеальный</td>
+                            <td>
+                                <span class="wins-count">
+                                    <i class="fas fa-medal"></i>
+                                    8 побед
+                                </span>
+                            </td>
+                            <td>
+                                <a href="https://tagger.su/user/max_perfect" class="profile-link" target="_blank">
+                                    Перейти <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="place-3">
+                            <td>
+                                <div class="rating-place">
+                                    <div class="place-medal">3</div>
+                                    <span>Бронза</span>
+                                </div>
+                            </td>
+                            <td>София Чародейка</td>
+                            <td>
+                                <span class="wins-count">
+                                    <i class="fas fa-award"></i>
+                                    6 побед
+                                </span>
+                            </td>
+                            <td>
+                                <a href="https://tagger.su/user/sophia_magic" class="profile-link" target="_blank">
+                                    Перейти <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
             <div class="social-link">
                 <a href="https://tagger.su/pages/bpcore" class="social-btn" target="_blank">
                     <i class="fab fa-telegram"></i>
@@ -488,6 +721,20 @@
             });
         }
         
+        // Интерактивность для строк рейтинга
+        function initRatingInteraction() {
+            const rows = document.querySelectorAll('.rating-table tr');
+            
+            rows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const link = this.querySelector('.profile-link');
+                    if (link) {
+                        window.open(link.href, '_blank');
+                    }
+                });
+            });
+        }
+        
         // Анимация появления элементов при прокрутке
         function initScrollAnimations() {
             const observer = new IntersectionObserver((entries) => {
@@ -504,19 +751,26 @@
             document.querySelectorAll('.top-card').forEach(card => {
                 observer.observe(card);
             });
+            
+            // Наблюдаем за таблицей рейтинга
+            const ratingTable = document.querySelector('.rating-table');
+            if (ratingTable) {
+                observer.observe(ratingTable);
+            }
         }
         
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             initCardsInteraction();
+            initRatingInteraction();
             initScrollAnimations();
             
             // Динамическое обновление даты в футере
             const currentYear = new Date().getFullYear();
             const yearElement = document.querySelector('footer p');
             if (yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+                yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
             }
         });
     </script>
