@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>beautiful people#</title>
+    <title>RODEO FREESTYLE PAB RECORDS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
         }
 
         :root {
-            --bg-color: #0a0a14;
-            --surface-color: #151520;
-            --accent-color: #6a4eff;
-            --accent-light: #8b75ff;
-            --text-color: #f0f0f0;
-            --text-secondary: #b0b0c0;
-            --border-color: #2a2a3a;
-            --gold: #ffd700;
-            --silver: #c0c0c0;
-            --bronze: #cd7f32;
+            --primary: #f8f9fa;
+            --secondary: #e9ecef;
+            --accent: #ff6b6b;
+            --text: #333333;
+            --text-light: #6c757d;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--primary);
+            color: var(--text);
             line-height: 1.6;
-            min-height: 100vh;
             overflow-x: hidden;
         }
 
@@ -40,723 +36,516 @@
             padding: 0 20px;
         }
 
-        /* Анимация появления */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px var(--accent-color); }
-            50% { box-shadow: 0 0 20px var(--accent-color); }
-        }
-
-        @keyframes medalGlow {
-            0%, 100% { text-shadow: 0 0 5px currentColor; }
-            50% { text-shadow: 0 0 15px currentColor; }
-        }
-
         /* Шапка */
         header {
-            padding: 40px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--secondary) 100%);
+            padding: 80px 0 60px;
             text-align: center;
-            animation: fadeIn 1s ease-out;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 1s ease-out;
         }
 
         .logo {
             font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
+            font-weight: 800;
+            color: var(--accent);
             margin-bottom: 10px;
-            position: relative;
-            display: inline-block;
+            letter-spacing: 1px;
         }
 
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 10%;
-            width: 80%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
-        }
-
-        .slogan {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
             font-weight: 300;
-            margin-top: 15px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* Основной контент */
-        main {
-            padding: 40px 0 80px;
-            animation: fadeIn 1.2s ease-out 0.3s both;
+        .wave-animation {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="%23ffffff"/></svg>');
+            background-size: 1200px 80px;
+            animation: wave 12s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1200px; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Разделы */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        section:nth-child(even) {
+            background-color: var(--secondary);
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
             text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--text);
             position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
-            padding-bottom: 10px;
         }
 
-        .section-title::after {
+        .section-title:after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent-color);
-        }
-
-        /* Карточки топа */
-        .top-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .top-card {
-            background: var(--surface-color);
-            border-radius: 16px;
-            padding: 30px;
-            width: 100%;
-            max-width: 350px;
-            border: 1px solid var(--border-color);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .top-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+            width: 70px;
             height: 4px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
+            background-color: var(--accent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
 
-        .top-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-light);
-        }
-
-        .top-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .top-card:nth-child(1):hover {
-            animation: glow 2s infinite;
-        }
-
-        .top-card:nth-child(2):hover {
-            animation: pulse 2s infinite;
-        }
-
-        .top-card:nth-child(3):hover {
-            transform: translateY(-10px) rotate(1deg);
-        }
-
-        .nomination {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--accent-light);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nomination i {
-            font-size: 1.5rem;
-        }
-
-        .photo-container {
-            width: 100%;
-            height: 250px;
-            border-radius: 12px;
-            margin: 20px 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .top-card:hover .photo-container img {
-            transform: scale(1.1);
-        }
-
-        .photo-info {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Система рейтинга */
-        .rating-section {
-            margin-top: 80px;
-            animation: fadeIn 1.4s ease-out 0.4s both;
-        }
-
-        .rating-table {
-            width: 100%;
-            max-width: 800px;
-            margin: 40px auto 0;
-            border-collapse: collapse;
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--surface-color);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .rating-table th {
-            background: var(--accent-color);
-            color: white;
-            padding: 20px;
-            text-align: left;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        .rating-table th:first-child {
-            border-radius: 16px 0 0 0;
-        }
-
-        .rating-table th:last-child {
-            border-radius: 0 16px 0 0;
-        }
-
-        .rating-table td {
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.3s ease;
-        }
-
-        .rating-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .rating-table tr:hover td {
-            background-color: rgba(106, 78, 255, 0.1);
-        }
-
-        .rating-place {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .place-medal {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .place-1 .place-medal {
-            background: linear-gradient(45deg, var(--gold), #ffed4e);
-            color: #000;
-            animation: medalGlow 2s infinite;
-        }
-
-        .place-2 .place-medal {
-            background: linear-gradient(45deg, var(--silver), #e6e6e6);
-            color: #000;
-            animation: medalGlow 2s infinite 0.3s;
-        }
-
-        .place-3 .place-medal {
-            background: linear-gradient(45deg, var(--bronze), #e6b87a);
-            color: #000;
-            animation: medalGlow 2s infinite 0.6s;
-        }
-
-        .profile-link {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .profile-link:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .profile-link i {
-            font-size: 0.9rem;
-        }
-
-        .wins-count {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(106, 78, 255, 0.2);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .wins-count i {
-            color: var(--gold);
-        }
-
-        /* Ссылка на соцсеть */
-        .social-link {
-            display: flex;
-            justify-content: center;
-            margin-top: 60px;
-            animation: fadeIn 1.5s ease-out 0.6s both;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background: linear-gradient(45deg, var(--accent-color), #8b3aff);
-            color: white;
-            padding: 18px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(106, 78, 255, 0.3);
-        }
-
-        .social-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(106, 78, 255, 0.5);
-            gap: 20px;
-            padding: 18px 40px;
-        }
-
-        .social-btn i {
-            font-size: 1.5rem;
-            transition: transform 0.4s ease;
-        }
-
-        .social-btn:hover i {
-            transform: rotate(15deg);
-        }
-
-        /* Подвал */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border-color);
+        /* Концерты */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
-        /* Адаптивность */
-        @media (max-width: 992px) {
-            .top-container {
-                gap: 20px;
-            }
-            
-            .top-card {
-                max-width: 300px;
-            }
-            
-            .rating-table {
-                max-width: 95%;
-            }
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .event-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--accent);
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .event-date i {
+            margin-right: 8px;
+        }
+
+        .event-name {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .event-location {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Артисты */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .artist-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+        }
+
+        .artist-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .artist-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .artist-info {
+            padding: 20px;
+        }
+
+        .artist-name {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .artist-members {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Критерии */
+        .criteria-container {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .criteria-list li:last-child {
+            border-bottom: none;
+        }
+
+        .criteria-list i {
+            color: var(--accent);
+            margin-right: 15px;
+            margin-top: 3px;
+            font-size: 1.2rem;
+        }
+
+        /* Обратная связь */
+        .contact-section {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .contact-text {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .tagger-btn {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .tagger-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .tagger-btn i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 5px 20px rgba(255, 107, 107, 0.5); }
+            100% { box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3); }
+        }
+
+        /* Футер */
+        footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* Адаптивность */
         @media (max-width: 768px) {
             .logo {
-                font-size: 2.8rem;
-            }
-            
-            .slogan {
-                font-size: 1.1rem;
-            }
-            
-            .top-card {
-                max-width: 100%;
-            }
-            
-            .social-btn {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .rating-table {
-                font-size: 0.9rem;
-            }
-            
-            .rating-table th,
-            .rating-table td {
-                padding: 15px 10px;
-            }
-            
-            .place-medal {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .section-title {
-                font-size: 1.7rem;
+                font-size: 1.8rem;
             }
             
-            .nomination {
-                font-size: 1.5rem;
+            section {
+                padding: 60px 0;
             }
             
-            .rating-place {
-                font-size: 1rem;
-                gap: 10px;
-            }
-            
-            .place-medal {
-                width: 30px;
-                height: 30px;
-                font-size: 0.8rem;
+            .events-grid, .artists-grid {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Эффекты частиц для фона */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
+        /* Анимации появления при скролле */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background-color: rgba(106, 78, 255, 0.2);
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Частицы фона -->
-    <div class="particles" id="particles"></div>
+    <!-- Шапка -->
+    <header>
+        <div class="container header-content">
+            <h1 class="logo">RODEO FREESTYLE PAB RECORDS</h1>
+            <p class="tagline">Музыкальный дистрибьютор и лейбл в штате Сан-Андреас. Мы открываем новые имена и создаем звучание будущего, объединяя таланты со всего штата под одним крылом.</p>
+            <p class="tagline">Наша миссия — дать голос артистам с уникальным видением и помочь им достичь мировой аудитории.</p>
+        </div>
+        <div class="wave-animation"></div>
+    </header>
 
-    <div class="container">
-        <header>
-            <h1 class="logo">beautiful people#</h1>
-            <p class="slogan">ПРО КРАСИВЫХ ЛЮДЕЙ</p>
-        </header>
+    <!-- Концерты и мероприятия -->
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Концерты</h2>
+            <div class="events-grid">
+                <div class="event-card fade-in">
+                    <div class="event-date"><i class="fas fa-calendar-alt"></i> 02 февраля, 21:00</div>
+                    <h3 class="event-name">silvain GROUNDHOG DAY SHOW</h3>
+                    <p class="event-location">Rodeo Area, Лос-Сантос</p>
+                    <p>Большой сольный концерт на площади Родео.</p>
+                </div>
+                <div class="event-card fade-in">
+                    <div class="event-date"><i class="fas fa-calendar-alt"></i> 21 января, 21:00</div>
+                    <h3 class="event-name">silvain DEBUT</h3>
+                    <p class="event-location">Palazzo Restaurant, Лос-Сантос</p>
+                    <p>Громкий дебют в изысканной атмосфере ресторана Palazzo.</p>
+                </div>
+                <div class="event-card fade-in">
+                    <div class="event-date"><i class="fas fa-calendar-alt"></i> -</div>
+                    <h3 class="event-name">-</h3>
+                    <p class="event-location">-</p>
+                    <p>-</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <main>
-            <h2 class="section-title">НОМИНАЦИИ НЕДЕЛИ</h2>
-            
-            <div class="top-container">
-                <!-- Самое залайканное -->
-                <div class="top-card">
-                    <div class="nomination">
-                        <i class="fas fa-heart"></i>
-                        <span>ЛАЙКИ</span>
+    <!-- Подписанные артисты -->
+    <section id="artists">
+        <div class="container">
+            <h2 class="section-title">Наши артисты</h2>
+            <div class="artists-grid">
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <i class="fas fa-guitar"></i>
                     </div>
-                    <div class="photo-container">
-                        <img src="." alt="ТУТ БУДЕТ ФОТО">
+                    <div class="artist-info">
+                        <h3 class="artist-name">silvain</h3>
+                        <p class="artist-members">Состав: Lilith Silvain (вокал, гитара), Kenneth Preston (барабаны), Wayne Fitzgerald (басс)</p>
+                        <p>Альтернативная рок-группа с уникальным саундом, сочетающим гранж, инди и шугейз-эстетику.</p>
                     </div>
-                    <div class="photo-info">
-                        <span>@таггер</span>
-                        <span>кол-во ♥</span>
-                    </div>
-                    <p style="margin-top:15px;color:var(--text-secondary);">описание</p>
                 </div>
-                
-                <!-- Самое комментируемое -->
-                <div class="top-card">
-                    <div class="nomination">
-                        <i class="fas fa-comment-alt"></i>
-                        <span>КОММЕНТАРИИ</span>
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <i class="fas fa-microphone"></i>
                     </div>
-                    <div class="photo-container">
-                        <img src="." alt="ТУТ БУДЕТ ФОТО">
+                    <div class="artist-info">
+                        <h3 class="artist-name">-</h3>
+                        <p class="artist-members">-</p>
+                        <p>-</p>
                     </div>
-                    <div class="photo-info">
-                        <span>@таггер</span>
-                        <span>кол-во 💬</span>
-                    </div>
-                    <p style="margin-top:15px;color:var(--text-secondary);">описание</p>
                 </div>
-                
-                <!-- Самое красивое -->
-                <div class="top-card">
-                    <div class="nomination">
-                        <i class="fas fa-crown"></i>
-                        <span>ЛУЧШЕЕ</span>
+                <div class="artist-card fade-in">
+                    <div class="artist-image">
+                        <i class="fas fa-headphones"></i>
                     </div>
-                    <div class="photo-container">
-                        <img src="." alt="ТУТ БУДЕТ ФОТО">
+                    <div class="artist-info">
+                        <h3 class="artist-name">-</h3>
+                        <p class="artist-members">Состав: -</p>
+                        <p>-</p>
                     </div>
-                    <div class="photo-info">
-                        <span>@таггер</span>
-                        <span>ВЫБОР РЕДАКЦИИ</span>
-                    </div>
-                    <p style="margin-top:15px;color:var(--text-secondary);">описание</p>
                 </div>
             </div>
-            
-            <!-- Система рейтинга -->
-            <div class="rating-section">
-                <h2 class="section-title">РЕЙТИНГ ПОБЕД</h2>
-                
-                <table class="rating-table">
-                    <thead>
-                        <tr>
-                            <th>Место</th>
-                            <th>Участник</th>
-                            <th>Побед</th>
-                            <th>Профиль</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="place-1">
-                            <td>
-                                <div class="rating-place">
-                                    <div class="place-medal">1</div>
-                                    <span>Золото</span>
-                                </div>
-                            </td>
-                            <td>-</td>
-                            <td>
-                                <span class="wins-count">
-                                    <i class="fas fa-trophy"></i>
-                                    - побед
-                                </span>
-                            </td>
-                            <td>
-                                <a href="https://tagger.su/" class="profile-link" target="_blank">
-                                    Перейти <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="place-2">
-                            <td>
-                                <div class="rating-place">
-                                    <div class="place-medal">2</div>
-                                    <span>Серебро</span>
-                                </div>
-                            </td>
-                            <td>-</td>
-                            <td>
-                                <span class="wins-count">
-                                    <i class="fas fa-medal"></i>
-                                    - побед
-                                </span>
-                            </td>
-                            <td>
-                                <a href="https://tagger.su/" class="profile-link" target="_blank">
-                                    Перейти <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr class="place-3">
-                            <td>
-                                <div class="rating-place">
-                                    <div class="place-medal">3</div>
-                                    <span>Бронза</span>
-                                </div>
-                            </td>
-                            <td>-</td>
-                            <td>
-                                <span class="wins-count">
-                                    <i class="fas fa-award"></i>
-                                    - побед
-                                </span>
-                            </td>
-                            <td>
-                                <a href="https://tagger.su/" class="profile-link" target="_blank">
-                                    Перейти <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        </div>
+    </section>
+
+    <!-- Критерии для сотрудничества -->
+    <section id="criteria">
+        <div class="container">
+            <h2 class="section-title">Критерии для сотрудничества</h2>
+            <div class="criteria-container fade-in">
+                <ul class="criteria-list">
+                    <li>
+                        <i class="fas fa-music"></i>
+                        <div>
+                            <strong>Уникальное звучание</strong>
+                            <p>Мы ищем артистов с оригинальным саундом, которые не боятся экспериментировать и создавать что-то новое.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Профессиональный подход</strong>
+                            <p>Готовность к постоянному развитию, работе в команде и соблюдению дедлайнов.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Наличие материала</strong>
+                            <p>Минимум 3-5 готовых треков или демо-записей для оценки потенциала.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-bullhorn"></i>
+                        <div>
+                            <strong>Активность в соцсетях</strong>
+                            <p>Наличие аудитории или готовность работать над ее развитием вместе с нашим промо-отделом.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <strong>Долгосрочные цели</strong>
+                            <p>Стремление к построению карьеры, а не разовым проектам.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            
-            <div class="social-link">
-                <a href="https://tagger.su/pages/bpcore" class="social-btn" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                    <span>Присоединиться к сообществу</span>
-                </a>
+        </div>
+    </section>
+
+    <!-- Обратная связь -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Подать заявку</h2>
+            <p class="contact-text fade-in">Если вы соответствуете нашим критериям и хотите стать частью RODEO FREESTYLE PAB RECORDS, отправьте заявку через наш официальный канал в TAGGER. Наши модераторы рассмотрят вашу кандидатуру и свяжутся для обсуждения деталей сотрудничества.</p>
+            <a href="https://tagger.su" target="_blank" class="tagger-btn fade-in">
+                <i class="fab fa-telegram"></i> Написать в TAGGER
+            </a>
+            <p style="margin-top: 20px; color: var(--text-light);" class="fade-in">Обычно мы отвечаем в течение 3-5 рабочих дней</p>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">RODEO FREESTYLE PAB RECORDS</div>
+            <p>Лос-Сантос • Музыкальный дистрибьютор и лейбл</p>
+            <p>Официальный канал: <a href="https://tagger.su" style="color: #ff6b6b; text-decoration: none;">tagger.su</a></p>
+            <div class="copyright">
+                &copy; 2026 RODEO FREESTYLE PAB RECORDS. Все права защищены.
             </div>
-        </main>
-        
-        <footer>
-            <p>beautiful people# &copy; 2026. еженедельный рейтинг красивых людей*</p>
-            <p style="margin-top:8px;font-size:0.8rem;">обновляется каждое воскресенье</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script>
-        // Создание частиц для фона
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Случайный размер
-                const size = Math.random() * 6 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Случайная позиция
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Случайная задержка анимации
-                particle.style.animationDelay = `${Math.random() * 20}s`;
-                
-                // Случайная продолжительность анимации
-                particle.style.animationDuration = `${Math.random() * 15 + 15}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        // Интерактивность для карточек
-        function initCardsInteraction() {
-            const cards = document.querySelectorAll('.top-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    // Добавление свечения при наведении
-                    this.style.boxShadow = '0 15px 30px rgba(106, 78, 255, 0.2)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    // Убираем свечение
-                    this.style.boxShadow = '';
-                });
-                
-                // Клик по карточке
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
-                });
-            });
-        }
-        
-        // Интерактивность для строк рейтинга
-        function initRatingInteraction() {
-            const rows = document.querySelectorAll('.rating-table tr');
-            
-            rows.forEach(row => {
-                row.addEventListener('click', function() {
-                    const link = this.querySelector('.profile-link');
-                    if (link) {
-                        window.open(link.href, '_blank');
-                    }
-                });
-            });
-        }
-        
-        // Анимация появления элементов при прокрутке
-        function initScrollAnimations() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            // Наблюдаем за карточками
-            document.querySelectorAll('.top-card').forEach(card => {
-                observer.observe(card);
-            });
-            
-            // Наблюдаем за таблицей рейтинга
-            const ratingTable = document.querySelector('.rating-table');
-            if (ratingTable) {
-                observer.observe(ratingTable);
-            }
-        }
-        
-        // Инициализация при загрузке страницы
+        // Анимация появления элементов при скролле
         document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            initCardsInteraction();
-            initRatingInteraction();
-            initScrollAnimations();
+            const fadeElements = document.querySelectorAll('.fade-in');
             
-            // Динамическое обновление даты в футере
-            const currentYear = new Date().getFullYear();
-            const yearElement = document.querySelector('footer p');
-            if (yearElement) {
-                yearElement.innerHTML = yearElement.innerHTML.replace('2026', currentYear);
-            }
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Проверяем при загрузке
+            fadeInOnScroll();
+            
+            // Проверяем при скролле
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Плавная прокрутка для навигации (если бы она была)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
