@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RODEO FREESTYLE LAB RECORDS</title>
+    <title>RODEO FRESTYLE LAB RECORDS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -416,85 +416,6 @@
             line-height: 1.7;
         }
 
-        .edit-photo-section {
-            background: var(--tertiary);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 25px;
-            border: 1px solid var(--border);
-        }
-
-        .edit-photo-title {
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        .edit-photo-title i {
-            margin-right: 10px;
-            color: var(--accent);
-        }
-
-        .photo-url-input {
-            width: 100%;
-            padding: 15px;
-            background: rgba(10, 10, 10, 0.5);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 1rem;
-            margin-bottom: 15px;
-            transition: var(--transition);
-        }
-
-        .photo-url-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.2);
-        }
-
-        .photo-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .photo-btn {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .save-btn {
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            color: white;
-        }
-
-        .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
-        }
-
-        .reset-btn {
-            background: var(--secondary);
-            color: var(--text-light);
-            border: 1px solid var(--border);
-        }
-
-        .reset-btn:hover {
-            background: var(--tertiary);
-            color: var(--text);
-        }
-
         /* Критерии */
         .criteria-container {
             max-width: 850px;
@@ -782,10 +703,6 @@
                 padding: 16px 30px;
                 font-size: 1.1rem;
             }
-            
-            .photo-buttons {
-                flex-direction: column;
-            }
         }
 
         /* Анимации появления при скролле */
@@ -830,13 +747,13 @@
         <div class="pulse-dot dot-4"></div>
         
         <div class="container header-content">
-            <h1 class="logo">RODEO FREESTYLE LAB RECORDS</h1>
+            <h1 class="logo">RODEO FRESTYLE LAB RECORDS</h1>
             <p class="tagline">Музыкальный дистрибьютор и лейбл в штате Сан-Андреас. Мы открываем новые имена и создаем звучание будущего, объединяя таланты со всего штата под одним крылом.</p>
             <p class="tagline">Наша миссия — дать голос артистам с уникальным видением и помочь им достичь мировой аудитории.</p>
         </div>
         
         <div class="scroll-indicator" onclick="document.getElementById('events').scrollIntoView({behavior: 'smooth'})">
-            <span>Открыть концерты</span>
+            <span>ОТКРЫТЬ КАЛЕНДАРЬ МЕРОПРИЯТИЙ</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </header>
@@ -844,7 +761,7 @@
     <!-- Концерты и мероприятия -->
     <section id="events">
         <div class="container">
-            <h2 class="section-title">Концерты</h2>
+            <h2 class="section-title">КОНЦЕРТЫ</h2>
             <div class="events-grid">
                 <div class="event-card fade-in">
                     <div class="event-date"><i class="fas fa-calendar-alt"></i> 02 февраля, 21:00</div>
@@ -868,89 +785,47 @@
         </div>
     </section>
 
-    <!-- Подписанные артисты с редактируемыми фото -->
+    <!-- Подписанные артисты -->
     <section id="artists">
         <div class="container">
-            <h2 class="section-title">Наши артисты</h2>
+            <h2 class="section-title">НАШИ АРТИСТЫ</h2>
             <div class="artists-grid">
-                <!-- Артист 1 -->
+                <!-- Артист 1 - silvain -->
+                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
-                        <img src="" alt="silvain" class="artist-image" id="artist-img-1" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
-                        <div class="image-placeholder" id="placeholder-1">
-                            <i class="fas fa-guitar"></i>
-                            <span>Добавьте фото артиста</span>
-                        </div>
+                        <img src="https://sun9-41.userapi.com/s/v1/ig2/4OaaH4PrQ6-RXI-3eAUIoJfblX4bFpcUlqBXoOg990ru8erTw8zoktATDKocQfLYmKSYUt8VcbMpDRFDtbEWpq9y.jpg?quality=95&as=32x12,48x18,72x27,108x41,160x61,240x91,360x136,480x182,540x204,640x242,720x272,1080x409,1280x484,1440x545,2400x908&from=bu&cs=1280x0" alt="silvain" class="artist-image">
                     </div>
                     <div class="artist-info">
                         <h3 class="artist-name">silvain</h3>
-                        <p class="artist-members">Состав: Lilith Silvain (вокал, гитара), Kenneth Preston (барабаны), Wayne Fitzgerald (басс)</p>
+                        <p class="artist-members">Lilith Silvain, Kenneth Preston, Wayne Fitzgerald</p>
                         <p class="artist-description">Альтернативная рок-группа с уникальным саундом, сочетающим гранж, инди и шугейз-эстетику.</p>
-                        
-                        <div class="edit-photo-section">
-                            <div class="edit-photo-title">
-                                <i class="fas fa-camera"></i> Добавить фото артиста
-                            </div>
-                            <input type="text" class="photo-url-input" id="photo-url-1" placeholder="Вставьте URL изображения... (например: https://example.com/photo.jpg)">
-                            <div class="photo-buttons">
-                                <button class="photo-btn save-btn" onclick="savePhoto(1)">Загрузить фото</button>
-                                <button class="photo-btn reset-btn" onclick="resetPhoto(1)">Сбросить</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Артист 2 -->
+                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
-                        <img src="" alt="Новый проект" class="artist-image" id="artist-img-2" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
-                        <div class="image-placeholder" id="placeholder-2" style="display: flex;">
-                            <i class="fas fa-microphone"></i>
-                            <span>Добавьте фото артиста</span>
-                        </div>
+                        <img src="ВСТАВЬТЕ_ССЫЛКУ_СЮДА" alt="Новый артист" class="artist-image">
                     </div>
                     <div class="artist-info">
-                        <h3 class="artist-name">-</h3>
-                        <p class="artist-members">-</p>
-                        <p class="artist-description">-</p>
-                        
-                        <div class="edit-photo-section">
-                            <div class="edit-photo-title">
-                                <i class="fas fa-camera"></i> Добавить фото артиста
-                            </div>
-                            <input type="text" class="photo-url-input" id="photo-url-2" placeholder="Вставьте URL изображения... (например: https://example.com/photo.jpg)">
-                            <div class="photo-buttons">
-                                <button class="photo-btn save-btn" onclick="savePhoto(2)">Загрузить фото</button>
-                                <button class="photo-btn reset-btn" onclick="resetPhoto(2)">Сбросить</button>
-                            </div>
-                        </div>
+                        <h3 class="artist-name">Ищем таланты</h3>
+                        <p class="artist-members">Место для вас</p>
+                        <p class="artist-description">Мы постоянно ищем новые таланты. Если вы артист или группа, подавайте заявку через TAGGER.</p>
                     </div>
                 </div>
 
                 <!-- Артист 3 -->
+                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
-                        <img src="" alt="Ищем таланты" class="artist-image" id="artist-img-3" onerror="this.style.display='none'; this.parentElement.querySelector('.image-placeholder').style.display='flex';">
-                        <div class="image-placeholder" id="placeholder-3" style="display: flex;">
-                            <i class="fas fa-headphones"></i>
-                            <span>Добавьте фото артиста</span>
-                        </div>
+                        <img src="ВСТАВЬТЕ_ССЫЛКУ_СЮДА" alt="Новый артист" class="artist-image">
                     </div>
                     <div class="artist-info">
                         <h3 class="artist-name">Ищем таланты</h3>
-                        <p class="artist-members">Место для вашей группы</p>
+                        <p class="artist-members">Место для вас</p>
                         <p class="artist-description">Мы постоянно ищем новые таланты. Если вы артист или группа, подавайте заявку через TAGGER.</p>
-                        
-                        <div class="edit-photo-section">
-                            <div class="edit-photo-title">
-                                <i class="fas fa-camera"></i> Добавить фото артиста
-                            </div>
-                            <input type="text" class="photo-url-input" id="photo-url-3" placeholder="Вставьте URL изображения... (например: https://example.com/photo.jpg)">
-                            <div class="photo-buttons">
-                                <button class="photo-btn save-btn" onclick="savePhoto(3)">Загрузить фото</button>
-                                <button class="photo-btn reset-btn" onclick="resetPhoto(3)">Сбросить</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -960,7 +835,7 @@
     <!-- Критерии для сотрудничества -->
     <section id="criteria">
         <div class="container">
-            <h2 class="section-title">Критерии для сотрудничества</h2>
+            <h2 class="section-title">КРИТЕРИИ ДЛЯ СОТРУДНИЧЕСТВА</h2>
             <div class="criteria-container fade-in">
                 <ul class="criteria-list">
                     <li>
@@ -1016,8 +891,8 @@
     <!-- Обратная связь -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">Подать заявку</h2>
-            <p class="contact-text fade-in">Если вы соответствуете нашим критериям и хотите стать частью RODEO FREESTYLE PAB RECORDS, отправьте заявку через наш официальный канал в TAGGER. Наши модераторы рассмотрят вашу кандидатуру и свяжутся для обсуждения деталей сотрудничества.</p>
+            <h2 class="section-title">ПОДАТЬ ЗАЯВКУ</h2>
+            <p class="contact-text fade-in">Если вы соответствуете нашим критериям и хотите стать частью RODEO FRESTYLE LAB RECORDS, отправьте заявку через наш официальный канал в TAGGER. Наши модераторы рассмотрят вашу кандидатуру и свяжутся для обсуждения деталей сотрудничества.</p>
             <a href="https://tagger.su/pages/RFLAB_RECORDS" target="_blank" class="tagger-btn fade-in">
                 <i class="fab fa-telegram"></i> Написать в TAGGER
             </a>
@@ -1028,7 +903,7 @@
     <!-- Футер -->
     <footer>
         <div class="container footer-content">
-            <div class="footer-logo">RODEO FREESTYLE LAB RECORDS</div>
+            <div class="footer-logo">RODEO FRESTYLE LAB RECORDS</div>
             <p>Сан-Андреас • Музыкальный дистрибьютор и лейбл</p>
             
             <div class="footer-links">
@@ -1040,135 +915,12 @@
             
             <p>Официальный канал: <a href="https://tagger.su/pages/RFLAB_RECORDS" style="color: var(--accent-light); text-decoration: none; font-weight: 600;">tagger.su</a></p>
             <div class="copyright">
-                &copy; 2026 RODEO FREESTYLE PAB RECORDS. Все права защищены.
+                &copy; 2026 RODEO FRESTYLE LAB RECORDS. Все права защищены.
             </div>
         </div>
     </footer>
 
     <script>
-        // Загрузить фото по ссылке
-        function savePhoto(artistId) {
-            const urlInput = document.getElementById(`photo-url-${artistId}`);
-            const photoUrl = urlInput.value.trim();
-            
-            if (!photoUrl) {
-                alert('Пожалуйста, введите URL изображения');
-                return;
-            }
-            
-            // Проверяем, является ли URL валидным
-            if (!photoUrl.startsWith('http://') && !photoUrl.startsWith('https://')) {
-                alert('URL должен начинаться с http:// или https://');
-                return;
-            }
-            
-            const imgElement = document.getElementById(`artist-img-${artistId}`);
-            const placeholderElement = document.getElementById(`placeholder-${artistId}`);
-            
-            // Создаем временное изображение для проверки
-            const testImage = new Image();
-            testImage.onload = function() {
-                imgElement.src = photoUrl;
-                imgElement.style.display = 'block';
-                placeholderElement.style.display = 'none';
-                
-                // Сохраняем в localStorage
-                try {
-                    localStorage.setItem(`artist_photo_${artistId}`, photoUrl);
-                    urlInput.value = ''; // Очищаем поле ввода
-                    showSuccessMessage('Фото успешно загружено!');
-                } catch (e) {
-                    console.log('Не удалось сохранить в localStorage');
-                    showSuccessMessage('Фото загружено, но не сохранено для будущих посещений');
-                }
-            };
-            
-            testImage.onerror = function() {
-                alert('Не удалось загрузить изображение. Проверьте URL и попробуйте снова.');
-                urlInput.focus();
-            };
-            
-            testImage.src = photoUrl;
-        }
-        
-        // Сбросить фото
-        function resetPhoto(artistId) {
-            const imgElement = document.getElementById(`artist-img-${artistId}`);
-            const placeholderElement = document.getElementById(`placeholder-${artistId}`);
-            const urlInput = document.getElementById(`photo-url-${artistId}`);
-            
-            imgElement.src = '';
-            imgElement.style.display = 'none';
-            placeholderElement.style.display = 'flex';
-            urlInput.value = '';
-            
-            // Удаляем из localStorage
-            try {
-                localStorage.removeItem(`artist_photo_${artistId}`);
-            } catch (e) {
-                console.log('Не удалось удалить из localStorage');
-            }
-            
-            showSuccessMessage('Фото сброшено');
-        }
-        
-        // Показать сообщение об успехе
-        function showSuccessMessage(message) {
-            // Создаем временное уведомление
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: linear-gradient(90deg, var(--accent), var(--accent-light));
-                color: white;
-                padding: 15px 25px;
-                border-radius: 10px;
-                z-index: 1000;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-                animation: slideIn 0.3s ease;
-                font-weight: 600;
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-        
-        // Загрузить сохраненные фото из localStorage
-        function loadSavedPhotos() {
-            for (let i = 1; i <= 3; i++) {
-                try {
-                    const savedPhoto = localStorage.getItem(`artist_photo_${i}`);
-                    if (savedPhoto) {
-                        const imgElement = document.getElementById(`artist-img-${i}`);
-                        const placeholderElement = document.getElementById(`placeholder-${i}`);
-                        
-                        // Проверяем, загружается ли изображение
-                        const testImage = new Image();
-                        testImage.onload = function() {
-                            imgElement.src = savedPhoto;
-                            imgElement.style.display = 'block';
-                            placeholderElement.style.display = 'none';
-                        };
-                        testImage.onerror = function() {
-                            // Если фото не загружается, удаляем его из хранилища
-                            localStorage.removeItem(`artist_photo_${i}`);
-                        };
-                        testImage.src = savedPhoto;
-                    }
-                } catch (e) {
-                    console.log('Не удалось загрузить фото из localStorage');
-                }
-            }
-        }
-        
         // Анимация появления элементов при скролле
         document.addEventListener('DOMContentLoaded', function() {
             const fadeElements = document.querySelectorAll('.fade-in');
@@ -1190,23 +942,6 @@
             // Проверяем при скролле
             window.addEventListener('scroll', fadeInOnScroll);
             
-            // Загружаем сохраненные фото
-            loadSavedPhotos();
-            
-            // Добавляем стили для анимации уведомлений
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-            `;
-            document.head.appendChild(style);
-            
             // Плавная прокрутка
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1222,14 +957,6 @@
                             behavior: 'smooth'
                         });
                     }
-                });
-            });
-            
-            // Фокус на поле ввода при клике на заголовок
-            document.querySelectorAll('.edit-photo-title').forEach((title, index) => {
-                title.addEventListener('click', function() {
-                    const inputId = index + 1;
-                    document.getElementById(`photo-url-${inputId}`).focus();
                 });
             });
         });
