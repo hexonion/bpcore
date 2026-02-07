@@ -476,7 +476,7 @@
             line-height: 1.7;
         }
 
-        /* Обратная связь */
+        /* Обратная связь - ИСПРАВЛЕНО */
         .contact-section {
             text-align: center;
             padding-bottom: 120px;
@@ -506,6 +506,7 @@
         .tagger-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             background: linear-gradient(90deg, var(--accent), var(--accent-light));
             color: white;
             padding: 20px 45px;
@@ -521,6 +522,7 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            margin: 0 auto;
         }
 
         .tagger-btn:before {
@@ -702,6 +704,7 @@
             .tagger-btn {
                 padding: 16px 30px;
                 font-size: 1.1rem;
+                white-space: nowrap;
             }
         }
 
@@ -734,6 +737,19 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(var(--accent-light), var(--accent));
+        }
+        
+        /* Дополнительный фикс для центрирования кнопки */
+        #contact .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        /* Гарантия центрирования кнопки */
+        .tagger-btn {
+            width: fit-content;
+            max-width: 100%;
         }
     </style>
 </head>
@@ -820,7 +836,10 @@
                 <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
-                        <img src="ВСТАВЬТЕ_ССЫЛКУ_СЮДА" alt="Новый артист" class="artist-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Новый артист</span>
+                        </div>
                     </div>
                     <div class="artist-info">
                         <h3 class="artist-name">Ищем таланты</h3>
@@ -926,40 +945,4 @@
             const fadeElements = document.querySelectorAll('.fade-in');
             
             const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Проверяем при загрузке
-            fadeInOnScroll();
-            
-            // Проверяем при скролле
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Плавная прокрутка
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+                fade
