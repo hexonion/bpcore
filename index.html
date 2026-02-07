@@ -501,6 +501,7 @@
             color: var(--text-light);
             font-size: 1.3rem;
             line-height: 1.8;
+            text-align: center;
         }
 
         .tagger-btn {
@@ -522,7 +523,8 @@
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            margin: 0 auto;
+            margin: 20px auto;
+            width: fit-content;
         }
 
         .tagger-btn:before {
@@ -562,6 +564,7 @@
             color: var(--text-lighter);
             font-size: 1rem;
             letter-spacing: 0.5px;
+            text-align: center;
         }
 
         /* Футер */
@@ -694,6 +697,11 @@
                 margin-right: 0;
                 margin-bottom: 20px;
             }
+            
+            .tagger-btn {
+                padding: 16px 30px;
+                font-size: 1.1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -702,8 +710,8 @@
             }
             
             .tagger-btn {
-                padding: 16px 30px;
-                font-size: 1.1rem;
+                padding: 16px 25px;
+                font-size: 1rem;
                 white-space: nowrap;
             }
         }
@@ -739,17 +747,13 @@
             background: linear-gradient(var(--accent-light), var(--accent));
         }
         
-        /* Дополнительный фикс для центрирования кнопки */
+        /* Гарантия центрирования контента в секции контактов */
         #contact .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        
-        /* Гарантия центрирования кнопки */
-        .tagger-btn {
-            width: fit-content;
-            max-width: 100%;
+            justify-content: center;
+            text-align: center;
         }
     </style>
 </head>
@@ -807,7 +811,6 @@
             <h2 class="section-title">НАШИ АРТИСТЫ</h2>
             <div class="artists-grid">
                 <!-- Артист 1 - silvain -->
-                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
                         <img src="https://sun9-41.userapi.com/s/v1/ig2/4OaaH4PrQ6-RXI-3eAUIoJfblX4bFpcUlqBXoOg990ru8erTw8zoktATDKocQfLYmKSYUt8VcbMpDRFDtbEWpq9y.jpg?quality=95&as=32x12,48x18,72x27,108x41,160x61,240x91,360x136,480x182,540x204,640x242,720x272,1080x409,1280x484,1440x545,2400x908&from=bu&cs=1280x0" alt="silvain" class="artist-image">
@@ -820,7 +823,6 @@
                 </div>
 
                 <!-- Артист 2 -->
-                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
                         <img src="https://sun9-15.userapi.com/s/v1/ig2/CkmAIADef0J1wgusx4Bq96bmFHm7Bu7EIGTsASsylARzU67FoZN7pvmqZOfREJy9vY2LOuEOAYDw3EOSBfhEPBii.jpg?quality=95&as=32x40,48x60,72x90,108x135,160x200,240x300,360x450,480x600,540x675,614x768&from=bu&cs=614x0" alt="Новый артист" class="artist-image">
@@ -833,7 +835,6 @@
                 </div>
 
                 <!-- Артист 3 -->
-                <!-- ЗДЕСЬ ВСТАВЬТЕ ССЫЛКУ НА ФОТО АРТИСТА -->
                 <div class="artist-card fade-in">
                     <div class="artist-image-container">
                         <div class="image-placeholder">
@@ -907,10 +908,9 @@
         </div>
     </section>
 
-    <!-- Обратная связь -->
+    <!-- Обратная связь (БЕЗ ЗАГОЛОВКА "ПОДАТЬ ЗАЯВКУ") -->
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title">ПОДАТЬ ЗАЯВКУ</h2>
             <p class="contact-text fade-in">Если вы соответствуете нашим критериям и хотите стать частью RODEO FRESTYLE LAB RECORDS, отправьте заявку через наш официальный канал в TAGGER. Наши модераторы рассмотрят вашу кандидатуру и свяжутся для обсуждения деталей сотрудничества.</p>
             <a href="https://tagger.su/pages/RFLAB_RECORDS" target="_blank" class="tagger-btn fade-in">
                 <i class="fab fa-telegram"></i> Написать в TAGGER
